@@ -10,5 +10,6 @@ dotenv.config()
 app.use(cors())
 app.use(express.json());
 mongoose.connect(`${process.env.MONGOOSE_URL}`)
-require('./routes/routes.js')(app)
+.then(console.log("conectado"))
+require('./routes/api.js')(app)
 app.listen(port)
