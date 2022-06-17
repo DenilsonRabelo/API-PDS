@@ -4,14 +4,22 @@ const SchemaAtendimento = require("../models/atendimento");
 const SchemaPet = require("../models/pet");
 
 async function reserva(res) {
-  const reserva = await SchemaReserva.find();
-  return res.json(reserva);
+  try {
+    const reserva = await SchemaReserva.find();
+    return res.json(reserva);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
 }
 
 async function reservaID(req, res) {
-  const id = req.params.id;
-  const reserva = await SchemaReserva.find({ _id: id });
-  return res.json(reserva);
+  try {
+    const id = req.params.id;
+    const reserva = await SchemaReserva.find({ _id: id });
+    return res.json(reserva);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
 }
 
 async function realizarReserva(req, res) {
@@ -61,4 +69,15 @@ async function efetivarReserva(req, res) {
   }
 }
 
-module.exports = { reserva, reservaID, realizarReserva, efetivarReserva };
+async function apagarReservaID(req, res) {
+  try {
+    const id = req.params.id;
+    await SchemaReserva.deleteOne({ _id: id });
+    return res.status(201).json({ messagem : "reserva apagada com sucesso"});
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+}
+
+
+module.exports = { reserva, reservaID, realizarReserva, efetivarReserva, apagarReservaID };

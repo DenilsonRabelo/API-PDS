@@ -15,6 +15,7 @@ router.get("/pet/:id", async (req, res) => {
   Pet.getPetID(req, res);
 });
 
+
 router.get("/atendimento", async (req, res) => {
   Atendimento.atendimento(res);
 });
@@ -23,6 +24,10 @@ router.get("/atendimento/:id", async (req, res) => {
   Atendimento.atendimento(req, res);
 });
 
+router.delete("/apagar-atendimento/:id", async (req, res) => {
+  Atendimento.deleteAtendimentoID(req,res);
+})
+
 router.get("/cuidador", async (req, res) => {
   Cuidador.cuidador(res);
 });
@@ -30,6 +35,10 @@ router.get("/cuidador", async (req, res) => {
 router.get("/cuidador/:id", async (req, res) => {
   Cuidador.cuidador(req, res);
 });
+
+router.delete("/apagar-cuidador/:id", async (req, res) => {
+ Cuidador.apagarCuidadorID(req, res)
+})
 
 router.post("/criar-cuidador", async (req, res) => {
   Cuidador.criarCuidador(req, res);
@@ -41,6 +50,10 @@ router.get("/reserva", async (req, res) => {
 
 router.get("/reserva/:id", async (req, res) => {
   Reserva.reservaID(req, res);
+});
+
+router.delete("/apagar-reserva/:id", async (req, res) => {
+  Reserva.apagarReservaID(req, res);
 });
 
 //reserva
