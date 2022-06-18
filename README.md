@@ -11,7 +11,7 @@ Uma API de atendimento de Pets.
 # Documento
 Descrição, requisitos, entidades e esquemas 
 
-<a href="https://github.com/DenilsonRabelo/API-PDS/tree/master/docs">Documentos</a> 
+<a href="https://github.com/DenilsonRabelo/API-PDS/blob/master/docs/ProjetoFinalPDS.pdf">Documentos</a> 
 
                                                      
                                                      
