@@ -10,10 +10,10 @@ Uma API de atendimento de Pets.
 
 # Documento
 
-| Topicos  |  link  |
+| Tópicos  |  link  |
 | ------------------- | ------------------- |
-|  Descrição, requisitos, entidades e esquemas |  <a href="https://github.com/DenilsonRabelo/API-PDS/blob/master/docs/ProjetoFinalPDS.pdf">Documentos</a> 
- |
+|  Descrição, requisitos, entidades e esquemas |  <a href="https://github.com/DenilsonRabelo/API-PDS/blob/master/docs/ProjetoFinalPDS.pdf">Documento</a> 
+ 
 
                                                      
                                                      
