@@ -52,7 +52,7 @@ async function efetivarReserva(req, res) {
     );
     const addAtendimento = await SchemaReserva.find({ efetivado: true });
     addAtendimento.forEach(async (e) => {
-      let objetoAtendimento = { status: "", pet: e.pet };
+      let objetoAtendimento = { status: "recebido", pet: e.pet, cuidador: e.cuidador };
       await SchemaPet.insertMany(e.pet);
       await SchemaAtendimento.insertMany(objetoAtendimento);
       await SchemaReserva.deleteMany({ _id: id });

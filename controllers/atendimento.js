@@ -20,6 +20,16 @@ async function atendimentoID(req, res) {
   }
 }
 
+async function AtendimentoStatus(req, res){
+  try {
+    const status = req.params.status
+    const atendimento = await SchemaAtendimento.find({ status: status });
+    return res.json(atendimento);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+}
+
 
 async function deleteAtendimentoID(req, res){
   try {
@@ -33,4 +43,17 @@ async function deleteAtendimentoID(req, res){
   }
 }
 
-module.exports = { atendimento, atendimentoID, deleteAtendimentoID };
+async function EditarAtendimentoID(req, res){
+  try {
+    const id = req.params.id
+    const body = req.body
+    await SchemaAtendimento.updateOne({ _id: id }, body);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+}
+
+
+
+
+module.exports = { atendimento, atendimentoID, deleteAtendimentoID, EditarAtendimentoID, AtendimentoStatus };
