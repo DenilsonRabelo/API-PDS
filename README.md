@@ -2,6 +2,10 @@
 
 ### Olá pessoal 👋
 
+<h1 align="center">
+  <img height="400" title="doguinho" src="https://pa1.narvii.com/6716/dd875576fce4814336ac13e5b93d36f173e7316a_hq.gif"/>
+</h1>
+
 # API-PDS
 Uma API de atendimento de Pets.
 
