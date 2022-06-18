@@ -12,7 +12,7 @@ Uma API de atendimento de Pets.
 
 | Tópicos  |  link  |
 | ------------------- | ------------------- |
-|  Descrição, requisitos, entidades e esquemas |  <a href="https://github.com/DenilsonRabelo/API-PDS/blob/master/docs/ProjetoFinalPDS.pdf">Documento</a> 
+|  Descrição, requisitos, entidades e esquemas |  <a href="https://github.com/DenilsonRabelo/API-PDS/blob/master/docs/ProjetoFinalPDS.pdf">Documentação</a> 
  
 
                                                      
