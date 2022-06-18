@@ -39,4 +39,16 @@ async function apagarCuidadorID(req, res) {
   }
 }
 
-module.exports = { cuidador, cuidadorID, criarCuidador, apagarCuidadorID };
+
+async function editarCuidadorID(req, res){
+  try {
+    const id = req.params.id
+    const body = req.body
+    await SchemaCuidador.updateOne({ _id: id }, body);
+    res.status(201).json(body);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+}
+
+module.exports = { cuidador, cuidadorID, criarCuidador, apagarCuidadorID, editarCuidadorID };

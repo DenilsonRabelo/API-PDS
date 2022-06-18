@@ -44,6 +44,10 @@ router.post("/criar-cuidador", async (req, res) => {
   Cuidador.criarCuidador(req, res);
 });
 
+router.patch("/editar-cuidador/:id", async (req, res) => {
+  Cuidador.editarCuidadorID(req, res)
+});
+
 router.get("/reserva", async (req, res) => {
   Reserva.reserva(res);
 });
