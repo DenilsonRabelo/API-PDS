@@ -11,7 +11,7 @@ Uma API de atendimento de Pets.
 # Documentos
 | Documento  |  link  |
 | ------------------- | ------------------- |
-|  Esquemas |  (<a href="https://github.com/DenilsonRabelo/API-PDS/tree/master/docs">Esquemas</a>) |
+|  Esquemas |  <a href="https://github.com/DenilsonRabelo/API-PDS/tree/master/docs">Esquemas</a> |
 
                                                      
                                                      
