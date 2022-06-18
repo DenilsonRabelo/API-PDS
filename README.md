@@ -10,7 +10,7 @@ Uma API de atendimento de Pets.
 
 # Pasta com os schemes
 <p>
-<a href="#">Esquemas</a>
+<a href="https://github.com/DenilsonRabelo/API-PDS/tree/master/docs">Esquemas</a>
 </p>
                                                      
                                                      
