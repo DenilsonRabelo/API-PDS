@@ -17,7 +17,6 @@ Uma API de atendimento de Pets.
 | Tópicos  |  link  |
 | ------------------- | ------------------- |
 |  Descrição, requisitos, entidades e esquemas |  <a href="https://github.com/DenilsonRabelo/API-PDS/blob/master/docs/ProjetoFinalPDS.pdf">Documentação</a>
-| ------------------- | ------------------- |
 |  Descrição das rotas |  <a href="https://documenter.getpostman.com/view/21652396/UzBsHjCq">Documentação Postman</a>
 
 ## 🚀 Autor
