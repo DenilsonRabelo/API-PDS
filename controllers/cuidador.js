@@ -1,8 +1,8 @@
-const SchemaCuidador = require("../models/cuidador");
+const Cuidador = require("../models/cuidador");
 
 async function cuidador(res) {
   try {
-    const cuidador = await SchemaCuidador.find();
+    const cuidador = await Cuidador.find();
     return res.json(cuidador);
   } catch (error) {
     res.status(500).json({ error: error });
@@ -12,7 +12,7 @@ async function cuidador(res) {
 async function cuidadorID(req, res) {
   try {
     const id = req.params.id;
-    const cuidador = await SchemaCuidador.find({ _id: id });
+    const cuidador = await Cuidador.find({ _id: id });
     return res.json(cuidador);
   } catch (error) {
     res.status(500).json({ error: error });
@@ -22,7 +22,7 @@ async function cuidadorID(req, res) {
 async function criarCuidador(req, res) {
   const body = req.body;
   try {
-    await SchemaCuidador.create(body);
+    await Cuidador.create(body);
     res.status(201).json({ mensagem: "criação feita com sucesso" });
   } catch (error) {
     res.status(500).json({ error: error });
@@ -32,23 +32,28 @@ async function criarCuidador(req, res) {
 async function apagarCuidadorID(req, res) {
   try {
     const id = req.params.id;
-    await SchemaCuidador.deleteOne({_id: id});
-    return res.status(201).json({mensagem: "cuidador apagado com sucesso"});
+    await Cuidador.deleteOne({ _id: id });
+    return res.status(201).json({ mensagem: "cuidador apagado com sucesso" });
   } catch (error) {
     res.status(500).json({ error: error });
   }
 }
 
-
-async function editarCuidadorID(req, res){
+async function editarCuidadorID(req, res) {
   try {
-    const id = req.params.id
-    const body = req.body
-    await SchemaCuidador.updateOne({ _id: id }, body);
+    const id = req.params.id;
+    const body = req.body;
+    await Cuidador.updateOne({ _id: id }, body);
     res.status(201).json(body);
   } catch (error) {
     res.status(500).json({ error: error });
   }
 }
 
-module.exports = { cuidador, cuidadorID, criarCuidador, apagarCuidadorID, editarCuidadorID };
+module.exports = {
+  cuidador,
+  cuidadorID,
+  criarCuidador,
+  apagarCuidadorID,
+  editarCuidadorID,
+};

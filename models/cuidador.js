@@ -1,15 +1,15 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
+const mongoose = require("mongoose");
 
-const mongoose = require("mongoose")
-
-
-const schemaCuidador = new mongoose.Schema({
-	nome: String,
+const Cuidador = new mongoose.Schema(
+  {
+    nome: String,
     id: Number,
     sexo: String,
-    experiencia: String
-}, { strict: false })
+    experiencia: String,
+  },
+  { strict: false }
+);
 
-
-module.exports = mongoose.model('cuidador', schemaCuidador)
+module.exports = mongoose.model("cuidador", Cuidador);

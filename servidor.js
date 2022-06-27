@@ -14,7 +14,14 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(express.json());
+
 mongoose.connect(`${process.env.MONGOOSE_URL}`)
 .then(console.log("conectado"))
-require('./view/api.js')(app)
+
+
+require('./view/pet.js')(app)
+require('./view/atendimento.js')(app)
+require('./view/cuidador.js')(app)
+require('./view/reserva.js')(app)
+
 app.listen(port)
