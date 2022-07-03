@@ -32,10 +32,8 @@ async function realizarReserva(req, res) {
     if (body.efetivado) {
       body.efetivado = false;
     }
-    await Reserva.create(Object.assign(body, cuidador));
-    res
-      .status(201)
-      .json({ mensagem: "solicitação de reserva feita com sucesso" });
+    const idReserva = await Reserva.create(Object.assign(body, cuidador));
+    res.status(201).json({ id: idReserva._id });
   } catch (error) {
     res.status(500).json({ error: error });
   }
@@ -46,9 +44,9 @@ async function efetivarReserva(req, res) {
   const body = req.body;
 
   try {
-    const atualizarEfetividade = await Reserva.updateOne({ _id: id }, body);
-    const addAtendimento = await Reserva.find({ efetivado: true });
-    addAtendimento.forEach(async (e) => {
+    const queryParametros = await Reserva.updateOne({ _id: id }, body);
+    const getReserva = await Reserva.find({ efetivado: true });
+    getReserva.forEach(async (e) => {
       let objetoAtendimento = {
         status: "recebido",
         pet: e.pet,
@@ -59,12 +57,29 @@ async function efetivarReserva(req, res) {
       await Reserva.deleteMany({ _id: id });
     });
 
-    if (atualizarEfetividade.matchedCount === 0) {
-      res.status(422).json({ mensagem: "Usuario não encontrado" });
+    if (queryParametros.matchedCount === 0) {
+      res.status(204).json({ mensagem: "Usuario não encontrado" });
       return;
     }
 
-    res.status(201).json(body);
+    res.status(201).json({ id: id });
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+}
+async function editarReservaID(req, res) {
+  try {
+    const id = req.params.id;
+    const body = req.body;
+    if (body.efetivado) {
+      return res
+        .status(400)
+        .json("message : você não pode passar efetivado = true");
+    }
+    await Reserva.updateOne({ _id: id }, body);
+    return res
+      .status(201)
+      .json(`message : reserva editada com sucesso, id: ${id}`);
   } catch (error) {
     res.status(500).json({ error: error });
   }
@@ -74,7 +89,7 @@ async function apagarReservaID(req, res) {
   try {
     const id = req.params.id;
     await Reserva.deleteOne({ _id: id });
-    return res.status(201).json({ messagem: "reserva apagada com sucesso" });
+    return res.status(201).json({ id: id });
   } catch (error) {
     res.status(500).json({ error: error });
   }
@@ -85,5 +100,6 @@ module.exports = {
   reservaID,
   realizarReserva,
   efetivarReserva,
+  editarReservaID,
   apagarReservaID,
 };

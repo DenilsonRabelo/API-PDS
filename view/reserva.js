@@ -22,5 +22,8 @@ router.post("/reserva", async (req, res) => {
 router.put("/reserva/:id", async (req, res) => {
   Controller.efetivarReserva(req, res);
 });
+router.put("/reservaedt/:id", async (req, res) => {
+  Controller.editarReservaID(req, res);
+});
 
 module.exports = (app) => app.use("/API-PDS", router);

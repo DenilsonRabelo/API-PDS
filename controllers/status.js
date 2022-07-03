@@ -12,14 +12,12 @@ async function statusID(req, res) {
       body.status == "pronto"
     ) {
       await Atendimento.updateOne({ _id: id }, body);
-      res.status(201).json(body);
+      res.status(201).json({ id: id });
     } else {
-      res
-        .status(404)
-        .json({
-          error:
-            "Por favor digitar algum status válido : finalizado, pronto, em atendimento, recebido",
-        });
+      res.status(404).json({
+        error:
+          "Por favor digitar algum status válido : finalizado, pronto, em atendimento, recebido",
+      });
     }
   } catch (error) {
     res.status(500).json({ error: error });

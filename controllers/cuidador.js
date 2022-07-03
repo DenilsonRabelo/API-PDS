@@ -22,8 +22,8 @@ async function cuidadorID(req, res) {
 async function criarCuidador(req, res) {
   const body = req.body;
   try {
-    await Cuidador.create(body);
-    res.status(201).json({ mensagem: "criação feita com sucesso" });
+    const id = await Cuidador.create(body);
+    res.status(201).json({ id: id._id });
   } catch (error) {
     res.status(500).json({ error: error });
   }
@@ -33,7 +33,7 @@ async function apagarCuidadorID(req, res) {
   try {
     const id = req.params.id;
     await Cuidador.deleteOne({ _id: id });
-    return res.status(201).json({ mensagem: "cuidador apagado com sucesso" });
+    return res.status(201).json({ id: id });
   } catch (error) {
     res.status(500).json({ error: error });
   }
@@ -44,7 +44,7 @@ async function editarCuidadorID(req, res) {
     const id = req.params.id;
     const body = req.body;
     await Cuidador.updateOne({ _id: id }, body);
-    res.status(201).json(body);
+    res.status(201).json({ id: id });
   } catch (error) {
     res.status(500).json({ error: error });
   }

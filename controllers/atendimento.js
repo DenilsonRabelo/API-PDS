@@ -5,8 +5,7 @@ async function atendimento(res) {
   try {
     const atendimento = await Atendimento.find();
     return res.json(atendimento);
-  } catch (error) {
-  }
+  } catch (error) {}
 }
 
 async function atendimentoID(req, res) {
@@ -18,7 +17,6 @@ async function atendimentoID(req, res) {
     res.status(500).json({ error: error });
   }
 }
-
 
 async function AtendimentoStatus(req, res) {
   try {
@@ -40,7 +38,7 @@ async function deleteAtendimentoID(req, res) {
       nome_dono: att[0].pet.nome_dono,
       objetivo: att[0].pet.objetivo,
     });
-    return res.status(201).json("message : atendimento apagado com sucesso");
+    return res.status(201).json({ id: id });
   } catch (error) {
     res.status(500).json({ error: error });
   }
@@ -51,6 +49,9 @@ async function EditarAtendimentoID(req, res) {
     const id = req.params.id;
     const body = req.body;
     await Atendimento.updateOne({ _id: id }, body);
+    return res
+      .status(201)
+      .json(`message : atendimento editado com sucesso, id: ${id}`);
   } catch (error) {
     res.status(500).json({ error: error });
   }
