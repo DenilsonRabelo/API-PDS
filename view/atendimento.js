@@ -1,31 +1,31 @@
-const Controller = require("../controllers/atendimento");
-const ControllerStatus = require("../controllers/status")
+const atendimentoController = require("../controllers/atendimento");
+const statusController = require("../controllers/status")
 
 const express = require("express");
 const router = express.Router();
 
-router.get("/atendimento", async (req, res) => {
-  Controller.atendimento(res);
+router.get("/atendimento", async(req, res) => {
+    atendimentoController.atendimento(res);
 });
 
-router.get("/atendimento/:id", async (req, res) => {
-  Controller.atendimentoID(req, res);
+router.get("/atendimento/:id", async(req, res) => {
+    atendimentoController.atendimentoID(req, res);
 });
 
-router.get("/atendimento-status/:status", async (req, res) => {
-  Controller.AtendimentoStatus(req, res);
+router.get("/atendimento-status/:status", async(req, res) => {
+    atendimentoController.AtendimentoStatus(req, res);
 });
 
-router.delete("/atendimento/:id", async (req, res) => {
-  Controller.deleteAtendimentoID(req, res);
+router.delete("/atendimento/:id", async(req, res) => {
+    atendimentoController.deleteAtendimentoID(req, res);
 });
 
-router.put("/atendimento/:id", async (req, res) => {
-  Controller.EditarAtendimentoID(req, res);
+router.put("/atendimento/:id", async(req, res) => {
+    atendimentoController.EditarAtendimentoID(req, res);
 });
 
-router.put("/status/:id", async (req, res) => {
-    ControllerStatus.statusID(req, res);
+router.put("/status/:id", async(req, res) => {
+    statusController.statusID(req, res);
 });
 
 module.exports = (app) => app.use("/API-PDS", router);
