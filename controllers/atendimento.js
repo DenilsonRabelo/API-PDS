@@ -5,7 +5,9 @@ async function atendimento(res) {
   try {
     const atendimento = await Atendimento.find();
     return res.json(atendimento);
-  } catch (error) {}
+  } catch (error) {
+    return res.json({ erro: erro });
+  }
 }
 
 async function atendimentoID(req, res) {

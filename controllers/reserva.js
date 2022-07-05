@@ -1,7 +1,8 @@
 const Reserva = require("../models/reserva");
 const Cuidador = require("../models/cuidador");
-const Atendimento = require("../models/atendimento");
-const Pet = require("../models/pet");
+
+
+const reservaService = require("../service/service.js");
 
 async function reserva(res) {
   try {
@@ -46,22 +47,11 @@ async function efetivarReserva(req, res) {
   try {
     const queryParametros = await Reserva.updateOne({ _id: id }, body);
     const getReserva = await Reserva.find({ efetivado: true });
-    getReserva.forEach(async (e) => {
-      let objetoAtendimento = {
-        status: "recebido",
-        pet: e.pet,
-        cuidador: e.cuidador,
-      };
-      await Pet.insertMany(e.pet);
-      await Atendimento.insertMany(objetoAtendimento);
-      await Reserva.deleteMany({ _id: id });
-    });
-
+    await reservaService.mountreserva(getReserva, id);
     if (queryParametros.matchedCount === 0) {
       res.status(204).json({ mensagem: "Usuario não encontrado" });
       return;
     }
-
     res.status(201).json({ id: id });
   } catch (error) {
     res.status(500).json({ error: error });
