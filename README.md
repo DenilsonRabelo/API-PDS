@@ -1,4 +1,4 @@
-<h1 align="center">Atendimento de pets</h1>
+<h1 align="center">Sistema de Controle de Atendimento de pet shop</h1>
 
 ### Olá pessoal 👋
 
