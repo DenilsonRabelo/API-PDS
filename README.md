@@ -3,7 +3,7 @@
 ### Olá pessoal 👋
 
 <h1 align="center">
-  <img height="400" title="doguinho" src="https://c.tenor.com/v6YIzjh2JH0AAAAd/dog-the-pet-collective.gif"/>
+  <img height="400" title="doguinho" src="https://media3.giphy.com/media/fxewGdcp6pteTTykF9/giphy.gif?cid=ecf05e47hbod2yptfl9vzqp1poixjamdaf4sw78gse98gm0f&rid=giphy.gif&ct=g"/>
 </h1>
 
 # API-PDS
